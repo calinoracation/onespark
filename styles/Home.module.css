@@ -8,6 +8,30 @@
   height: 100vh;
 }
 
+@keyframes slide-in {
+  0% {
+    transform: translateY(-100%);
+  }
+  30% {
+    transform: translateY(0%);
+  }
+  80% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-95px) scale(0.5);
+  }
+}
+
+.logoAnimation {
+  margin: 0 auto;
+  width: 50vw;
+  contain: paint layout;
+  animation: slide-in 4000ms ease-in-out;
+  animation-fill-mode: both;
+  transform-origin: top center;
+}
+
 .main {
   padding: 5rem 0;
   flex: 1;
