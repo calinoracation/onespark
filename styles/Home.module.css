@@ -25,11 +25,18 @@
 
 .logoAnimation {
   margin: 0 auto;
-  width: 50vw;
-  contain: paint layout;
+  width: 60vw;
+  contain: paint layout size;
+  aspect-ratio: 1/1;
   animation: slide-in 4000ms ease-in-out;
   animation-fill-mode: both;
   transform-origin: top center;
+}
+
+@media (max-width: 600px) {
+  .logoAnimation {
+    width: 100vw;
+  }
 }
 
 .main {

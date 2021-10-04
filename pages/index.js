@@ -11,10 +11,20 @@ export default function Home() {
   useEffect(() => {
     if (!logoAnimationPlayer) return;
 
-    setTimeout(() => {
-      logoAnimationPlayer.state.instance.play();
-    }, 300);    
-  }, [logoAnimationPlayer, logoAnimationPlayer?.state?.instance]);
+    function playAnimation() {
+      if (!logoAnimationPlayer?.state?.instance) {
+        setTimeout(playAnimation, 100);
+      }
+
+      try {
+        logoAnimationPlayer.state.instance.play();
+      } catch {
+        setTimeout(playAnimation, 100);
+      }
+    }
+
+    setTimeout(playAnimation, 300);    
+  }, [logoAnimationPlayer]);
 
   return (
     <div className={styles.container}>
