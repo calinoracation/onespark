@@ -11,7 +11,7 @@ export default function Home() {
 
   useEffect(() => {
     if (CSS.paintWorklet) {
-      CSS.paintWorklet.addModule(new URL('../worker.js', import.meta.url));
+      CSS.paintWorklet.addModule('https://cdn.jsdelivr.net/gh/calinoracation/onespark/worker.js');
     }
   }, []);
 
@@ -50,9 +50,9 @@ export default function Home() {
         />
         <nav>
           <ul>
-            <li><a href="/courses">Courses</a></li>
-            <li><a href="/profile">Current Progress</a></li>
-            <li><a href="/learn">Learn</a></li>
+            <li><a className={styles.navLink} href="/courses" style={{ animationDelay: '4100ms' }}>Courses</a></li>
+            <li><a className={styles.navLink} href="/profile" style={{ animationDelay: '4250ms' }}>Current Progress</a></li>
+            <li><a className={styles.navLink} href="/learn" style={{ animationDelay: '4400ms' }}>Learn</a></li>
           </ul>
         </nav>
       </main>
