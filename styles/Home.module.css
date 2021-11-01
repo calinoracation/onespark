@@ -1,34 +1,3 @@
 .container {
   display: grid;
 }
-
-.logoAnimation {
-  background: #fff;
-  width: 300px;
-  margin: -45px auto 0;
-  aspect-ratio: 1/1;
-  contain: strict;
-}
-
-.logoAnimation::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  display: block;
-  bottom: 0;
-  width: 25px;
-  height: 100%;
-  background: #fff;
-  z-index: 2;
-}
-
-.logoAnimation::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  display: block;
-  bottom: 0;
-  width: 25px;
-  height: 100%;
-  background: #fff;
-}

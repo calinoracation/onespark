@@ -1,18 +1,9 @@
 import Head from 'next/head'
-import { useEffect} from 'react';
 
 import styles from '../styles/Home.module.css'
+import Logo from '../components/Logo.tsx';
 
 export default function Home() {
-  useEffect(() => {
-    import('@lottiefiles/lottie-player');
-  }, []);
-
-  useEffect(() => {
-    if (CSS.paintWorklet) {
-      CSS.paintWorklet.addModule('https://cdn.jsdelivr.net/gh/calinoracation/onespark/worker.js');
-    }
-  }, []);
 
   return (
     <div className={styles.container}>
@@ -23,14 +14,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <div className={styles.logoAnimation}>
-          <lottie-player
-            background="#fff"
-            autoplay
-            loop
-            src="https://assets1.lottiefiles.com/private_files/lf30_hfvmbyss.json"
-          ></lottie-player>        
-        </div>
+        <Logo />
       </main>
     </div>
   )
