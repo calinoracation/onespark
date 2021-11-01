@@ -1,37 +1,18 @@
 import Head from 'next/head'
-import { Player } from '@lottiefiles/react-lottie-player';
-import { useEffect, useRef, useState} from 'react';
+import { useEffect} from 'react';
 
-import LoopingLogo from '../assets/logo_loop_animation.json';
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
-  const [logoAnimationPlayer, setLogoAnimationPlayer] = useState();
-  const smoothWorkerRef = useRef();
+  useEffect(() => {
+    import('@lottiefiles/lottie-player');
+  }, []);
 
   useEffect(() => {
     if (CSS.paintWorklet) {
       CSS.paintWorklet.addModule('https://cdn.jsdelivr.net/gh/calinoracation/onespark/worker.js');
     }
   }, []);
-
-  useEffect(() => {
-    if (!logoAnimationPlayer) return;
-
-    function playAnimation() {
-      if (!logoAnimationPlayer?.state?.instance) {
-        setTimeout(playAnimation, 100);
-      }
-
-      try {
-        logoAnimationPlayer.state.instance.play();
-      } catch {
-        setTimeout(playAnimation, 100);
-      }
-    }
-
-    setTimeout(playAnimation, 300);    
-  }, [logoAnimationPlayer]);
 
   return (
     <div className={styles.container}>
@@ -42,19 +23,14 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Player
-          className={styles.logoAnimation}
-          ref={setLogoAnimationPlayer}
-          src={LoopingLogo}
-          speed={2.0}
-        />
-        <nav>
-          <ul>
-            <li><a className={styles.navLink} href="/courses" style={{ animationDelay: '4100ms' }}>Courses</a></li>
-            <li><a className={styles.navLink} href="/profile" style={{ animationDelay: '4250ms' }}>Current Progress</a></li>
-            <li><a className={styles.navLink} href="/learn" style={{ animationDelay: '4400ms' }}>Learn</a></li>
-          </ul>
-        </nav>
+        <div className={styles.logoAnimation}>
+          <lottie-player
+            background="#fff"
+            autoplay
+            loop
+            src="https://assets1.lottiefiles.com/private_files/lf30_hfvmbyss.json"
+          ></lottie-player>        
+        </div>
       </main>
     </div>
   )
