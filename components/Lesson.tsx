@@ -1,11 +1,17 @@
 interface LessonProps {
+  children: React.ReactNode;
   title: string;
 }
 
-export function Lesson({ title }: LessonProps) {
+import styles from '../styles/lesson.module.css';
+
+export function Lesson({ children, title }: LessonProps) {
   return (
-    <div>
-      <h2>Lesson Module: {title}</h2>
-    </div>
+    <section className={styles.lesson}>
+      <h1>{title}</h1>
+      <div className={styles.content}>
+        {children}
+      </div>
+    </section>
   );
 }

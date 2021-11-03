@@ -11,6 +11,16 @@ a {
   text-decoration: none;
 }
 
+a[href] {
+  --theme-color: hsl(41, 100%, 39%);
+  color: var(--theme-color);
+  text-decoration: underline;
+}
+
+a[href]:hover {
+  --theme-color: hsl(41, 100%, 49%);
+}
+
 * {
   box-sizing: border-box;
 }

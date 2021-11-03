@@ -1,4 +1,5 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import Link from 'next/link';
 
 import matter from 'gray-matter'
 import { serialize } from 'next-mdx-remote/serialize'
@@ -9,17 +10,18 @@ import path from 'path';
 
 import { Lesson } from '../../../components/Lesson';
 import { Logo } from '../../../components/Logo';
+import styles from '../../../styles/lesson.module.css';
 
-const components = { Lesson, Logo };
+const components = { Lesson, Link, Logo };
 
 export default function LessonPage({ source, frontMatter }) {
   return (
-    <div className="wrapper">
+    <main className={styles.main}>
       <Head>
         <title>{frontMatter.title}</title>
       </Head>
       <MDXRemote {...source} components={components} />
-    </div>
+    </main>
   )
 }
 
