@@ -20,11 +20,12 @@ export function Logo() {
   return (
     <div className={styles.logoContainer}>
       <div className={styles.logoAnimation} data-shared-element-id="logo">
+        {/* @ts-expect-error */}
         <lottie-player
           autoplay
           loop
           src="https://assets1.lottiefiles.com/private_files/lf30_hfvmbyss.json"
-        ></lottie-player>
+        />
       </div>
     </div>
   )
