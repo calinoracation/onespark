@@ -8,7 +8,9 @@ export function Logo() {
   }, [])
 
   useEffect(() => {
+    // @ts-expect-error
     if (CSS.paintWorklet) {
+      // @ts-expect-error
       CSS.paintWorklet.addModule(
         'https://cdn.jsdelivr.net/gh/calinoracation/onespark/worker.js',
       )
