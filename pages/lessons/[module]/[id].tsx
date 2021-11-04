@@ -65,7 +65,7 @@ export async function getStaticProps({ params }: { params: LessonParams}) {
   const { id, module } = params;
   const filePath = path.join(process.cwd(), 'content', module, `${id}.mdx`);
   const source = await fs.readFile(filePath, { encoding: 'utf8' });
-  const { content, data: frontMatter } = matter(source)
-  const mdxSource = await serialize(content, { scope: frontMatter })
-  return { props: { source: mdxSource, frontMatter } }
+  const { content, data: frontMatter } = matter(source);
+  const mdxSource = await serialize(content, { scope: frontMatter });
+  return { props: { source: mdxSource, frontMatter } };
 }

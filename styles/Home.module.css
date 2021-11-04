@@ -1,3 +1,27 @@
 .container {
   display: grid;
 }
+
+.courseList {
+  display: grid;
+  margin: 3ch auto 0;
+  justify-content: center;
+  width: min(100%, 800px);
+  list-style-type: none;
+  grid-template-columns: repeat(auto-fit, 170px);
+  gap: 10ch;
+}
+
+.card {
+  display: flex;
+  --theme-color: #fff;  
+  word-wrap: break-word;
+  border-radius: 30px;
+  text-align: center;
+  background: linear-gradient(rgb(13, 184, 215), rgb(12, 223, 226));
+}
+
+.card > a {
+  flex: 1;
+  padding: 1.5ch 2ch;
+}

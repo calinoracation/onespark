@@ -1,3 +1,7 @@
+:root {
+  --theme-color: hsl(41, 100%, 39%);
+}
+
 html,
 body {
   padding: 0;
@@ -11,8 +15,7 @@ a {
   text-decoration: none;
 }
 
-a[href] {
-  --theme-color: hsl(41, 100%, 39%);
+a[href] {  
   color: var(--theme-color);
   text-decoration: underline;
 }
