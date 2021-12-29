@@ -1,33 +1,67 @@
+@import "open-props/style";
+@import "open-props/normalize";
+
 :root {
   --theme-color: hsl(41, 100%, 39%);
+  --link-color-1: hsl(194, 95%, 30%);;
 }
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@custom-media --OSdark (prefers-color-scheme: dark);
+
+@media (--OSdark) {
+  :root {
+    --link-color-1: pink;
+  }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+html {
+  background-color: white;
+  background-image: var(--gradient-9);
+  --op-gradient-direction: to top right;
+  --text-1: var(--gray-9);
+  --text-2: var(--gray-7);
+  --logo-title: hsl(350, 100%, 60%);
+  --logo-subtitle: rgba(0, 0, 0, 0.7);  
 }
 
-a[href] {  
-  color: var(--theme-color);
-  text-decoration: underline;
+@media (--OSdark) {
+  html {
+    background-image: var(--gradient-23);    
+    --text-1: var(--gray-1);
+    --text-2: var(--gray-2);
+    --logo-title: hsl(189, 100%, 90%);
+    --logo-subtitle: rgba(255, 255, 255, 1);
+  }  
 }
 
-a[href]:hover {
-  --theme-color: hsl(41, 100%, 49%);
+:where(svg):where(:not([fill])) {
+  stroke: unset;
 }
 
-* {
-  box-sizing: border-box;
+button {
+  display: inline-flex;
+  white-space: nowrap;
+  
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-4);
+  
+  padding-inline: var(--size-3);
+  padding-block: var(--size-2);
+
+  color: var(--pink-9);
+  border: var(--border-size-2) solid var(--pink-7);
+  background-color: transparent;
+  border-radius: var(--radius-2);
 }
 
-h1 {
-  margin: 0;
+@media (--OSdark) {
+  button {
+    color: var(--grape-1);
+    border: var(--border-size-2) solid var(--grape-3);
+  }
+}
+
+button:active {
+  position: relative;
+  inset-block-start: 2px;
 }

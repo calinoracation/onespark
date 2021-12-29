@@ -4,24 +4,39 @@
 
 .courseList {
   display: grid;
-  margin: 3ch auto 0;
-  justify-content: center;
-  width: min(100%, 800px);
   list-style-type: none;
-  grid-template-columns: repeat(auto-fit, 170px);
-  gap: 10ch;
+  grid-auto-flow: column;
+  grid-auto-columns: 180px;
+  justify-content: center;
+  margin: 2ch;
+  margin-block-start: 0;
+  padding: 0;
+  gap: 4ch;
 }
 
 .card {
-  display: flex;
-  --theme-color: #fff;  
-  word-wrap: break-word;
-  border-radius: 30px;
-  text-align: center;
-  background: linear-gradient(rgb(13, 184, 215), rgb(12, 223, 226));
+  aspect-ratio: var(--ratio-box);
+  border-radius: var(--radius-2);
+  display: grid;
+  padding: var(--size-fluid-3);
+  place-content: center;
+  padding-inline-start: 2ch;
+  box-shadow: var(--shadow-4);
+  border: var(--border-size-2) solid var(--gray-1);
+  line-height: var(--font-lineheight-1);
+  font-size: var(--font-size-fluid-1);
+  border-radius: var(--radius-blob-3);
 }
 
-.card > a {
-  flex: 1;
-  padding: 1.5ch 2ch;
+@media (--OSdark) {
+  .card {
+    box-shadow: var(--shadow-3);
+    border: var(--border-size-2) solid var(--gray-6);
+  }  
+}
+
+.card a,
+.card a:hover,
+.card a:visited {
+  color: var(--link-color-1);
 }

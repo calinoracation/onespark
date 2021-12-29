@@ -1,37 +1,40 @@
 .logoContainer {
-  overflow: hidden;
-  overflow: clip;
-  height: 190px;
-  display: flex;
+  display: grid;
+  grid-template-rows: 250px;
+  place-content: center;
+}
+
+.logoTitle {
+  fill: var(--logo-title, #75b3a6);
+  stroke-width: 0;
+}
+
+.logoSubtitle {
+  fill: var(--logo-subtitle, rgb(225 226 241));
+  stroke-width: 0;
+}
+
+.logoText {
+  width: 100%;
 }
 
 .logoAnimation {
-  background: #fff;
-  width: 300px;
-  margin: -45px auto 0;
-  height: 290px;
+  clip-path: inset(0px 0px 125px 0px);
   contain: strict;
+  grid-area: 1 / 1;
+  margin-block-start: -50px;
+  overflow: hidden;
+  overflow: clip;
+  width: 290px;
 }
 
-.logoAnimation::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  display: block;
-  bottom: 0;
-  width: 25px;
-  height: 100%;
-  background: #fff;
-  z-index: 2;
-}
-
-.logoAnimation::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  display: block;
-  bottom: 0;
-  width: 25px;
-  height: 100%;
-  background: #fff;
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  grid-area: 1 / 1;
+  margin-block-start: 80px;
+  position: relative;
+  align-items: center;
+  width: 80%;
+  margin-inline: 10%;
 }
